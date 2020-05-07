@@ -24,16 +24,18 @@ def start():
 def login():
     username = input("Username  ").lower()
     password = input("Password  ")
-    with open("staff.txt", "r") as staff_file:
-
-        staff = json.load(staff_file)
-        for n in staff["db"]:
-            if username == n["username"].lower() and password == n["password"]:
-                session(create, loggedin)
-                staff_actions()
-            else:
-                print("Wrong details")
-                login()
+    staff_file = open("staff.txt", "r")
+    for row in staff_file:
+        data = row.split(",")
+        db_username = data[0]
+        db_password = data[1]
+        if username == db_username and password == db_password:
+            staff_actions()
+            session_create()
+        else:
+            print("Incorrect Login Details")
+            print("Try Again")
+            login()
 
 
 def staff_actions():
@@ -45,9 +47,18 @@ def staff_actions():
     2. Logout
     """)
     action = int(input(">-"))
+    if action == 1:
+        create_bank_account()
 
 
-def session():
+def create_bank_account():
+    print("Collecting user details")
+    acc_name = input("Customer account name >- ")
+    opening_balance = input("Customer opening balance >- ")
+    acc_type = input("Customer account type >- ")
+    acc_email = input("Customer account email >- ")
+
+def session_create():
     print("me")
 
 

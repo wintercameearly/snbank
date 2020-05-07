@@ -1,1 +1,1 @@
-{"db":[{"username":"Dave","password":"1234","email":dave@gmail.com","fullname":"david olatunde"},{"username":"Dave","password":"1234","email":dave@gmail.com","fullname":"david olatunde"}]}
+dave,1234,dave@gmail.com,david olatunde
